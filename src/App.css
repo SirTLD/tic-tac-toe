@@ -1,38 +1,114 @@
+* {
+  margin: 0;
+  padding: 0,;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Permanent Marker', cursive;
+}
+
 .App {
+    height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+/* Title */
+
+.title {
+   background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,94,101,1) 65%); 
+  width: 100%;
+  padding: 2rem;
+}
+
+.title-h1{
+  font-size: clamp(2rem, 5vw, 15rem);
+  color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Game */
+
+.game {
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Container */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.grid_container {
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,94,101,1) 65%); 
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;   
 }
 
-.App-link {
-  color: #61dafb;
+.grid {
+  /* background-color: pink; */
+  display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ grid-template-rows: repeat(2, 1fr);
+gap: clamp(0.4rem, 0.6rem, 1rem);
+justify-items: center;
+align-items: center;
+ width: contain;
+height: contain;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Square */
+
+.square_unit {
+  background-color: white;
+  height: clamp(5.5rem, 15vw, 10rem);
+  width: clamp(5.5rem, 15vw, 10rem);
+  border-radius:clamp(.2rem, .5rem, 1.2rem);
+  -webkit-border-radius:clamp(.2rem, .5rem, 1.2rem);
+  -moz-border-radius:clamp(.2rem, .5rem, 1.2rem);
+  -ms-border-radius:clamp(.2rem, .5rem, 1.2rem);
+  -o-border-radius:clamp(.2rem, .5rem, 1.2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
+
+.square_unit:hover {
+  background-color: rgb(202, 202, 202);
+}
+
+.square_unit > div {
+  
+  margin: 0 auto;
+}
+
+/* circle */
+
+.circle {
+  /* font-size: 5rem; */
+width: contain;
+height: auto;
+}
+
+.x_cross {
+  stroke: red;
+}
+
+.x_circle {
+ stroke: green; 
+}
+
+svg {
+  stroke-width: 20px; 
+  fill: none;
+  stroke-linecap: round;
+}
+
+
