@@ -1,64 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Square from './Square';
 
-const Grid = (props) => {
+const Grid = () => {
+  const EMPTY = 'EMPTY';
+  const CIRCLE = 'CIRCLE';
+  const CROSS = 'CROSS';
+
+  const [state, setState] = useState({
+    player: CROSS,
+    positions: [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+  });
+
+  const makeTurn = (position) => {
+    const positions = [...state.positions];
+    positions[position] = state.player;
+
+    setState({
+      player: state.player === CIRCLE ? CROSS : CIRCLE,
+    });
+  };
+
   return (
     <div className="grid_container">
       <div className="grid">
-        <Square
-          value={props.squares[0]}
-          onClick={() => {
-            props.onClick(0);
-          }}
-        />
-        <Square
-          value={props.squares[1]}
-          onClick={() => {
-            props.onClick(1);
-          }}
-        />
-        <Square
-          value={props.squares[2]}
-          onClick={() => {
-            props.onClick(2);
-          }}
-        />
-        <Square
-          value={props.squares[3]}
-          onClick={() => {
-            props.onClick(3);
-          }}
-        />
-        <Square
-          value={props.squares[4]}
-          onClick={() => {
-            props.onClick(4);
-          }}
-        />
-        <Square
-          value={props.squares[5]}
-          onClick={() => {
-            props.onClick(5);
-          }}
-        />
-        <Square
-          value={props.squares[6]}
-          onClick={() => {
-            props.onClick(6);
-          }}
-        />
-        <Square
-          value={props.squares[7]}
-          onClick={() => {
-            props.onClick(7);
-          }}
-        />
-        <Square
-          value={props.squares[8]}
-          onClick={() => {
-            props.onClick(8);
-          }}
-        />
+        <Square position={0} value={state.positions[0]} makeTurn={makeTurn} />
+        <Square position={1} value={state.positions[1]} makeTurn={makeTurn} />
+        <Square position={2} value={state.positions[2]} makeTurn={makeTurn} />
+        <Square position={3} value={state.positions[3]} makeTurn={makeTurn} />
+        <Square position={4} value={state.positions[4]} makeTurn={makeTurn} />
+        <Square position={5} value={state.positions[5]} makeTurn={makeTurn} />
+        <Square position={6} value={state.positions[6]} makeTurn={makeTurn} />
+        <Square position={7} value={state.positions[7]} makeTurn={makeTurn} />
+        <Square position={8} value={state.positions[8]} makeTurn={makeTurn} />
       </div>
     </div>
   );

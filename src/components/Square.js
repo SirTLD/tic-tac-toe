@@ -1,11 +1,18 @@
 import React from 'react';
 import Circle from './Circle';
-import Xsign from './Cross';
+import Cross from './Cross';
 
-const Square = (props) => {
+const Square = ({ position, value, makeTurn }) => {
+  const handleClick = () => {
+    if (value === 'EMPTY') {
+      makeTurn(position);
+    }
+  };
+
   return (
-    <div className="square_unit" onClick={props.onClick}>
-      {props.value}
+    <div className="square_unit" onClick={handleClick}>
+      {value === 'CIRCLE' && <Circle />}
+      {value === 'CROSS' && <Cross />}
     </div>
   );
 };
