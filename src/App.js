@@ -7,9 +7,7 @@ function App() {
   return (
     <div className="App">
       <Title />
-      {/* <Game /> */}
       <Grid />
-      <button>Start New Ga</button>
     </div>
   );
 }

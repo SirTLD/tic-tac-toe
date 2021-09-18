@@ -15,6 +15,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;  
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,94,101,1) 65%); 
 }
 
 /* Title */
@@ -23,7 +25,7 @@ body {
    background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,94,101,1) 65%); 
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .title-h1{
@@ -78,6 +80,7 @@ height: contain;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 6rem;
 }
 
 .square_unit:hover {
@@ -85,10 +88,8 @@ height: contain;
 }
 
 .square_unit > div {
-  
-  margin: 0 auto;
+    margin: 0 auto;
 }
-
 /* circle */
 
 .circle {
@@ -109,6 +110,19 @@ svg {
   stroke-width: 20px; 
   fill: none;
   stroke-linecap: round;
+}
+
+.game-title {
+  font-size: 1.5rem;
+  padding: 1rem;
+   color: white;
+
+}
+
+.game-tag {
+  color: white;
+  font-size: 2.5rem;
+  padding: 1rem;
 }
 
 
