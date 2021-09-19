@@ -5,6 +5,7 @@ const Grid = () => {
   const [cells, setCells] = useState(Array(9).fill(''));
 
   const [winner, setWinner] = useState();
+  const [draw, setDraw] = useState();
 
   const winnerCheck = (squares) => {
     let winningCombo = {
@@ -48,13 +49,22 @@ const Grid = () => {
     }
     let squares = [...cells];
 
+    let arrVal = [];
+
+    console.log(`These are for the squares ONLY!!! ${squares}`);
+    console.log(cells[num]);
+
     if (turn === 'X') {
       squares[num] = 'X';
+      
+
       setTurn('O');
     } else {
       squares[num] = 'O';
       setTurn('X');
     }
+
+    console.log(`The values in the array are: ${arrVal}`);
 
     winnerCheck(squares);
     setCells(squares);
@@ -79,6 +89,7 @@ const Grid = () => {
     <>
       {!winner && <h1 className="game-title">Turn: Player {turn}</h1>}
       {winner && <h1 className="game-title">Game Over!</h1>}
+      {draw && <h1 className="game-title">It is a tie</h1>}
 
       <div className="grid">
         <Square num={0} click={handleClick} />
@@ -96,7 +107,19 @@ const Grid = () => {
         <>
           <h1 className="game-tag">Player {winner} has won! </h1>
 
-          <button onClick={restartGame}>Start New Game</button>
+          <button className="restart" onClick={restartGame}>
+            Start New Game
+          </button>
+        </>
+      )}
+
+      {draw && (
+        <>
+          <h1 className="game-tag">No winner yet!</h1>
+
+          <button className="restart" onClick={restartGame}>
+            Start New Game
+          </button>
         </>
       )}
     </>
