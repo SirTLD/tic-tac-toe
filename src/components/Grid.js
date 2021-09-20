@@ -13,15 +13,6 @@ const Grid = () => {
   const highlightwinner = winningArr.line;
   let status;
 
-  if (winner) {
-    status = `Game Over!`;
-  }
-  if (draw) {
-    status = 'It is a Draw';
-  } else {
-    status = 'Next Player is ' + (isXNext ? 'X' : 'O');
-  }
-
   const renderSquare = (i) => {
     return (
       <Square
@@ -45,7 +36,13 @@ const Grid = () => {
   return (
     <>
       <div>
-        <h1 className="game-title">{status}</h1>
+        <h1 className="game-title">
+          {winner
+            ? (status = 'Game Over')
+            : draw
+            ? (status = 'It is a Draw')
+            : (status = 'Next Player is ' + (isXNext ? 'X' : 'O'))}
+        </h1>
       </div>
 
       <div className="grid">
