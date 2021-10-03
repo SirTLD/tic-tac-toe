@@ -132,7 +132,7 @@ height: contain;
 }
 
 .restart {
-  width: 12rem;
+  width: 14rem;
   height: 3rem;
   color:white;
   font-size: clamp(1rem, 4vw, 1.4rem);
