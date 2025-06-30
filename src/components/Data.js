@@ -7,31 +7,26 @@ export function Data(squares) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6],
-  ];
+    [2, 4, 6]
+  ]
 
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+  // Check for winner
+  for (const [a, b, c] of lines) {
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return {
         winner: squares[a],
-        line: lines[i],
-        isDraw: false,
-      };
+        line: [a, b, c],
+        isDraw: false
+      }
     }
   }
 
-  let isDraw = true;
-
-  for (let i = 0; i < squares.length; i++) {
-    if (squares[i] === null) {
-      isDraw = false;
-    }
-  }
+  // Check for draw
+  const isDraw = squares.every((square) => square !== null)
 
   return {
     winner: null,
     line: null,
-    isDraw: isDraw,
-  };
+    isDraw
+  }
 }
