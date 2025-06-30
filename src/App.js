@@ -1,15 +1,14 @@
-import './App.css';
-// import Game from './components/Game';
-import Title from './components/Title';
-import Grid from './components/Grid';
+import './App.css'
+import Title from './components/Title'
+import Grid from './components/Grid'
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Title />
       <Grid />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
